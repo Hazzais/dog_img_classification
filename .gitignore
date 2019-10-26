@@ -1,0 +1,5 @@
+# IDE files
+.idea/
+
+# Model files - too large to upload to GitHub
+models/

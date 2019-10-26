@@ -14,6 +14,7 @@ import requests
 import cv2
 import urllib
 
+# TODO: make asynchronous?
 
 def url_to_image(url):
     # download the image, convert it to a NumPy array, and then read

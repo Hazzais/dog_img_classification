@@ -9,7 +9,6 @@ from keras.preprocessing import image
 from keras.models import load_model
 from keras.preprocessing.image import ImageDataGenerator
 
-
 model_name = os.path.join('models', 'dropout_tl.h5')
 img_path = r'D:\Documents\PythonDoc\Photo_classification\Images\Processed'
 x_pixels = 200
@@ -89,8 +88,8 @@ def rand_check(index=None):
     # if incorrect
     check_image_color = '#40e843' if \
         ((check_image_prob >= 0.5) and (check_image_true == 1)) or (
-                    (check_image_prob < 0.5) and (
-                        check_image_true == 0)) else '#ea1212'
+                (check_image_prob < 0.5) and (
+                check_image_true == 0)) else '#ea1212'
 
     # Load image and define text to be displayed with it
     check_image = image.load_img(check_image_path)
@@ -190,7 +189,7 @@ def show_results(tp_ind, tn_ind, fp_ind, fn_ind, n_tp=5, n_tn=5, n_fp=5,
                 ax[r, c].xaxis.set_ticklabels([])
                 ax[r, c].xaxis.set_ticks_position('none')
                 border_color = '#40e843' if (all_type[img_count] == 'TP') or (
-                            all_type[img_count] == 'TN') else '#ea1212'
+                        all_type[img_count] == 'TN') else '#ea1212'
                 # https://stackoverflow.com/questions/7778954/elegantly-changing-the-color-of-a-plot-frame-in-matplotlib
                 for spine in ax[r, c].spines.values():
                     spine.set_edgecolor(border_color)
@@ -203,15 +202,14 @@ show_results(rand_choice_tp, rand_choice_tn, rand_choice_fp, rand_choice_fn,
              n_tp=3, n_tn=3, n_fp=3, n_fn=3, n_cols=3)
 
 # =============================================================================
-# Apply
+# Application to other images
 # =============================================================================
-# TODO: make into another apply script?
 img_path_apply = 'D:\Documents\PythonDoc\Photo_classification\Images\Holiday 2015'
 
 
 # Get list of all images in a folder
 def retrieve_images(folder, image_extensions=(
-'.jpg', '.jpeg', '.bmp', '.png', '.gif')):
+        '.jpg', '.jpeg', '.bmp', '.png', '.gif')):
     base_images = [f for f in os.listdir(folder) if
                    f.lower().endswith(image_extensions)]
     return base_images
